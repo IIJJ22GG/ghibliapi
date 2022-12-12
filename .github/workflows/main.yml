@@ -3,7 +3,7 @@ name: Deploy to Cloudflare Workers with Wrangler
 on:
   push:
     branches:
-      - main
+      - master
 
 jobs:
   deploy:
