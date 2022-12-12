@@ -1,3 +1,4 @@
 name = "worker"
 main = "src/index.js"
 compatibility_date = "2022-12-11"
+route = "studioghibli.iijj22gg.workers.dev/*"
