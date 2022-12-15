@@ -5,7 +5,7 @@ addEventListener('fetch', event => {
     switch(url){case '': case false:
         console.log('a')
         return event.respondWith( new Response(page, {
-            headers: { 'content-type': 'application/html', 'Access-Control-Allow-Origin': '*'}
+            headers: { 'content-type': 'application/html' }
         }))
     }
     let response = data
@@ -21,6 +21,6 @@ addEventListener('fetch', event => {
     }
     console.log('b')
     return event.respondWith( new Response(JSON.stringify(response), {
-        headers: { 'content-type': 'application/json;charset=UTF-8' }
+        headers: { 'content-type': 'application/json;charset=UTF-8', 'Access-Control-Allow-Origin': '*' }
     }))
 })
