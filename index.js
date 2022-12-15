@@ -5,7 +5,7 @@ addEventListener('fetch', event => {
     switch(url){case '': case false:
         console.log('a')
         return event.respondWith( new Response(page, {
-            headers: { 'content-type': 'application/html' }
+            headers: { 'content-type': 'application/html', 'Access-Control-Allow-Origin': '*'}
         }))
     }
     let response = data
