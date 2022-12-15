@@ -3,7 +3,7 @@ const data = require('./data.json')
 addEventListener('fetch', event => {
     url = event.request.url.replace('https://studioghibli.iijj22gg.tk/','')
     switch(url){case '': case false:
-        return event.respondWith( new Response(page, {
+        return event.respondWith( new Response(JSON.stringify(page), {
             headers: { 'content-type': 'application/html;charset=UTF-8' }
         }))
     }
