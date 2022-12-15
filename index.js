@@ -4,7 +4,7 @@ addEventListener('fetch', event => {
     url = event.request.url.replace('https://studioghibli.iijj22gg.tk/','')
     switch(url){case '': case false:
         return event.respondWith( new Response(page.default, {
-            headers: { 'content-type': 'application/html;charset=UTF-8' }
+            headers: { 'content-type': 'text/html;charset=UTF-8' }
         }))
     }
     let response = data
