@@ -1,6 +1,7 @@
 const page = require('./public/index.html')
 const data = require('./data.json')
 addEventListener('fetch', event => {
+    console.log(event.request.url)
     url = location.pathname
     switch(url){case '': case false:
         return event.respondWith( new Response(page, {
