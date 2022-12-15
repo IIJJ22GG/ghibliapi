@@ -10,7 +10,7 @@ info:
     # Getting Started
       Requests can be made with `curl` or other helper libraries by following regular REST calls. For example, here is how to GET the resource for the film *My Neighbor Tororo*:
 
-      `curl https://studioghibli.iijj22gg.tk/studioghibli.iijj22gg.tk/films/58611129-2dbc-4a81-a72f-77ddfc1b1b49`
+      `curl https://studioghibli.iijj22gg.tk/films/58611129-2dbc-4a81-a72f-77ddfc1b1b49`
 
       Calling this resource will respond with the following object:
 
