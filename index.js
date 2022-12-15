@@ -3,9 +3,8 @@ const data = require('./data.json')
 addEventListener('fetch', event => {
     url = event.request.url.replace('https://studioghibli.iijj22gg.tk/','')
     switch(url){case '': case false:
-        console.log('a')
         return event.respondWith( new Response(page, {
-            headers: { 'content-type': 'application/html' }
+            headers: { 'content-type': 'application/html;charset=UTF-8' }
         }))
     }
     let response = data
@@ -19,7 +18,6 @@ addEventListener('fetch', event => {
         }}
         response = 404; break
     }
-    console.log('b')
     return event.respondWith( new Response(JSON.stringify(response), {
         headers: { 'content-type': 'application/json;charset=UTF-8', 'Access-Control-Allow-Origin': '*' }
     }))
