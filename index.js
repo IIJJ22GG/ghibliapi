@@ -1,7 +1,7 @@
 const page = require('./public/index.html')
-console.log(page)
 const data = require('./data.json')
 addEventListener('fetch', event => {
+    console.log(page)
     url = event.request.url.replace('https://studioghibli.iijj22gg.tk/','')
     switch(url){case '': case false:
         return event.respondWith( new Response(page, {
