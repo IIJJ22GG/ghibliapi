@@ -106,7 +106,7 @@ info:
 
   version: "1.0.1"
   x-logo:
-    url: "./images/logo.svg"
+    url: "https://raw.githubusercontent.com/IIJJ22GG/ghibliapi/master/public/images/logo.svg"
     backgroundColor: "#FFFFFF"
 # the domain of the service
 host: studioghibli.iijj22gg.tk
