@@ -1,24 +1,15 @@
-const page = require('./public/index.html')
-const data = require('./data.json')
+const page = require('./public/index.html');
+const data = require('./data.json');
+
 addEventListener('fetch', event => {
-    url = event.request.url.replace('https://studioghibli.iijj22gg.tk/','')
-    switch(url){case '': case false:
-        return event.respondWith( new Response(page.default, {
-            headers: { 'content-type': 'text/html;charset=UTF-8' }
-        }))
-    }
-    let response = data
-    url = url.split('/')
-    l:for (let i=0, n=url.length; i < n; ++i){ o=url[i]
-        switch(o){case '': continue}
-        switch(response.hasOwnProperty(o)){case true: response = response[o]; continue}
-        switch(response[0]){case undefined:break; default: 
-            for (let ii=0, nn=Object.keys(response).length; ii < nn; ++ii){
-                switch(response[ii].id===o){case true: response = response[ii]; continue l}
-        }}
-        response = 404; break
-    }
-    return event.respondWith( new Response(JSON.stringify(response), {
-        headers: { 'content-type': 'application/json;charset=UTF-8', 'Access-Control-Allow-Origin': '*' }
-    }))
-})
+  const path = new URL(event.request.url).pathname;
+  if (path === '/' || path === '') {
+    return event.respondWith(new Response(page.default, {headers: {'content-type': 'text/html;charset=UTF-8'}}));
+  }
+  let response = data;
+  for (const segment of path.split('/').filter(Boolean)) {
+    response = typeof response === 'object' ? response[segment] : response.find(obj => obj.id === segment);
+    if (!response) return event.respondWith(new Response(JSON.stringify({status: 404}), {headers: {'content-type': 'application/json;charset=UTF-8', 'Access-Control-Allow-Origin': '*'}}));
+  }
+  return event.respondWith(new Response(JSON.stringify(response), {headers: {'content-type': 'application/json;charset=UTF-8', 'Access-Control-Allow-Origin': '*'}}));
+});
